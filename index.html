@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cartesian or Polar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+      <article>
+        <div>
+          <h1>Cartesian or Polar</h1>
+          <p
+            >This is a remake of
+            <a
+              href="https://observablehq.com/@climatecentral/top-years-of-co2"
+              target="_blank"
+              >Top Years of CO₂ (weekly)</a
+            >. Besides the original cartesian coordinates version, a polar
+            coordinates version is added for comparison.</p
+          >
+        </div>
+
+        <div class="comparison" id="comparison">
+          <figure>
+            <h2>New Highs for CO₂</h2>
+            <p>Weekly concentration in parts per million</p>
+            <div id="cartesian"></div>
+            <footer>
+              <p>
+                Weekly measurements of atmospheric carbon dioxide (ppm) at Mauna
+                Loa Observatory.
+              </p>
+              <p>
+                Data through 10/29/2026. Source: NOAA Global Monitoring
+                Laboratory.
+              </p>
+            </footer>
+          </figure>
+          <figure>
+            <h2>New Highs for CO₂</h2>
+            <p>Weekly concentration in parts per million</p>
+            <div id="polar"></div>
+            <footer>
+              <p>
+                Weekly measurements of atmospheric carbon dioxide (ppm) at Mauna
+                Loa Observatory.
+              </p>
+              <p>
+                Data through 10/29/2026. Source: NOAA Global Monitoring
+                Laboratory.
+              </p>
+            </footer>
+          </figure>
+        </div>
+
+        <footer>
+          <p
+            >Data source:
+            <a
+              href="https://github.com/kwebercc/cs-observable-data"
+              target="_blank"
+              >Data for Climate Central's Climate Services Observable
+              notebooks</a
+            ></p
+          >
+        </footer>
+      </article>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

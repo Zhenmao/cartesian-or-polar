@@ -1,0 +1,199 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: currentColor;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+:root {
+  --font-family: "Open Sans", sans-serif;
+
+  --font-size-sm: clamp(0.89rem, -0.08vi + 0.91rem, 0.84rem);
+  --font-size-md: clamp(1rem, 0.23vi + 0.94rem, 1.13rem);
+  --font-size-lg: clamp(1.13rem, 0.68vi + 0.95rem, 1.5rem);
+  --font-size-xl: clamp(1.27rem, 1.33vi + 0.93rem, 2rem);
+  --font-size-2xl: clamp(1.42rem, 2.26vi + 0.86rem, 2.66rem);
+  --font-size-3xl: clamp(1.6rem, 3.55vi + 0.72rem, 3.55rem);
+  --font-size-4xl: clamp(1.8rem, 5.33vi + 0.47rem, 4.73rem);
+
+  --font-size-vis-sm: 14px;
+  --font-size-vis-md: 16px;
+  --font-size-vis-lg: 18px;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --line-height-title: 1;
+  --line-height-body: 1.4;
+
+  --color-background: #ffffff;
+  --color-text: #121212;
+  --color-text-invert: #ffffff;
+  --color-accent: #fa5b35;
+  --color-surface: #fa5b35;
+  --color-tooltip-background: #323232;
+  --color-6: #fb7d5e;
+  --color-5: #fe9175;
+  --color-4: #ffa68e;
+  --color-3: #ffb9a6;
+  --color-2: #ffccbf;
+  --color-1: #feded7;
+  --color-tick: #fcdfcd;
+
+  --chart-width: 640px;
+  --figure-padding: 24px;
+  --figure-width: calc(var(--chart-width) + var(--figure-padding) * 2);
+  --comparison-gap-x: 64px;
+  --comparison-width: calc(var(--figure-width) * 2 + var(--comparison-gap-x));
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-body);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+h1,
+h2 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-title);
+  font-size: var(--font-size-4xl);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-invert);
+}
+
+main {
+  margin-block: 4rem;
+}
+
+article {
+  width: min(100% - 2rem, var(--comparison-width));
+  margin-inline: auto;
+  display: grid;
+  gap: 4rem;
+}
+
+.comparison {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 4rem;
+  position: relative;
+}
+
+figure {
+  flex: 0 1 var(--figure-width);
+  background-color: var(--color-surface);
+  padding: var(--figure-padding);
+}
+
+figure footer {
+  font-size: var(--font-size-sm);
+}
+
+.chart {
+  margin-block: 1em;
+  user-select: none;
+  cursor: crosshair;
+}
+
+.chart .tick line {
+  stroke: var(--color-tick);
+}
+
+.chart .tick circle {
+  stroke: var(--color-tick);
+  fill: none;
+}
+
+.chart .tick text {
+  font-size: var(--font-size-vis-sm);
+  fill: var(--color-text);
+}
+
+.chart .label {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-vis-lg);
+  fill: var(--color-text);
+}
+
+.chart .focus {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.chart .focus__line,
+.chart .focus__dot {
+  stroke: var(--color-text);
+}
+
+.tooltip {
+  pointer-events: none;
+  position: absolute;
+  background-color: var(--color-tooltip-background);
+  color: var(--color-text-invert);
+  padding: 0.25em 0.5em;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    visibility 0.1s,
+    opacity 0.1s;
+}
+
+.tooltip .tooltip__row {
+  display: flex;
+  align-items: center;
+}
+
+.tooltip .row__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-inline-end: 0.25em;
+}
+
+.tooltip .row__label {
+  font-weight: var(--font-weight-bold);
+}
+
+.tooltip .tooltip__header {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+}
+
+.tooltip .row__value {
+  font-size: var(--font-size-sm);
+  flex: 1;
+  text-align: end;
+  margin-inline-start: 1em;
+}
+
+.comparison .is-visible {
+  visibility: visible;
+  opacity: 1;
+}
